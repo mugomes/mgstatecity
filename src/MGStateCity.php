@@ -1,6 +1,6 @@
 <?php
 // Copyright (C) 2026 Murilo Gomes Julio
-// SPDX-License-Identifier: GPL-2.0-only
+// SPDX-License-Identifier: LGPL-2.1-only
 
 // Site: https://mugomes.github.io
 
@@ -36,13 +36,17 @@ class MGStateCity
         return json_decode(file_get_contents($file), true);
     }
 
-    public function setCache(string $key, array $data)
+    private function setCache(string $key, array $data)
     {
+        if (empty($this->cacheDir)) {
+            $this->setCacheDir(dirname(__FILE__, 2) . '/cache', 0755);
+        }
+
         $file = $this->cacheDir . '/' . md5($key) . '.json';
         file_put_contents($file, json_encode($data));
     }
 
-    function getHTTPJSON(string $url): array
+    private function getHTTPJSON(string $url): array
     {
         $cached = $this->getCache($url, $this->cacheTTL);
         if ($cached !== null) {
@@ -84,7 +88,7 @@ class MGStateCity
         return [$estados, null];
     }
 
-    public function listMunicipios(string $uf):array
+    public function listMunicipios(string $uf): array
     {
         $url = sprintf('https://servicodados.ibge.gov.br/api/v1/localidades/estados/%s/municipios', urlencode($uf));
 
@@ -102,7 +106,7 @@ class MGStateCity
         return [$municipios, null];
     }
 
-    function buscarPorNome(string $nome, string $uf):array
+    public function buscarPorNome(string $nome, string $uf): array
     {
         $url = sprintf('https://servicodados.ibge.gov.br/api/v1/localidades/estados/%s/municipios', urlencode($uf));
 
