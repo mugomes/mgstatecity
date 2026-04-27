@@ -1,14 +1,13 @@
 {
     "name": "mugomes/mgstatecity",
     "version": "1.0.0",
-    "description": "",
     "authors": [
         {
             "name": "Murilo Gomes Julio",
             "email": "mugomesoficial@gmail.com"
         }
     ],
-    "homepage": "https://www.mugomes.com.br",
+    "homepage": "https://mugomes.github.io",
     "_comment": [
         "Copyright (C) 2026 Murilo Gomes Julio"
     ],
