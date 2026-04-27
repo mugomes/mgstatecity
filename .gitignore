@@ -1,7 +1,9 @@
-# folders
+# cache
 cache/
-vendor/
 
-# files
+# composer
+vendor/
 composer.lock
+
+# test
 index.php
