@@ -1,4 +1,8 @@
 # MGStateCity
+
+> [!NOTE]
+> This repository has been migrated to Codeberg, please see: https://codeberg.org/bluice/mgstatecity
+> 
 Obtém os estados e cidades via API do IBGE.
 
 ---
